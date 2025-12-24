@@ -1,0 +1,42 @@
+
+
+{% extends 'booking/base.html' %}
+
+{% load form_filters %}
+
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">Add New Accommodation</h2>
+
+  <form method="post" enctype="multipart/form-data" class="card p-4 shadow-sm">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="id_name" class="form-label">Name</label>
+      {{ form.name|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_description" class="form-label">Description</label>
+      {{ form.description|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_price" class="form-label">Price per night</label>
+      {{ form.price|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_location" class="form-label">Location</label>
+      {{ form.location|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_image" class="form-label">Image</label>
+      {{ form.image|add_class:"form-control" }}
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+{% endblock %}

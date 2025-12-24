@@ -1,0 +1,36 @@
+{% extends 'booking/base.html' %}
+{% load form_filters %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title mb-3">{{ accommodation.name }}</h2>
+        <p class="card-text"><strong>Description:</strong> {{ accommodation.description }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ accommodation.location }}</p>
+        <p class="card-text"><strong>Price per night:</strong> {{ accommodation.price }} CZK</p>
+
+        <hr>
+
+        <h4 class="mb-3">Make a booking</h4>
+        <form method="post" class="row g-3">
+          {% csrf_token %}
+          <div class="col-md-6">
+            <label for="id_check_in" class="form-label">Check-in:</label>
+            {{ form.check_in|add_class:"form-control" }}
+          </div>
+          <div class="col-md-6">
+            <label for="id_check_out" class="form-label">Check-out:</label>
+            {{ form.check_out|add_class:"form-control" }}
+          </div>
+          <div class="col-12 mt-2">
+            <button type="submit" class="btn btn-primary">Book now</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "booking/base.html" %}
+
+{% block content %}
+<h2>Вход в аккаунт</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="username">Логин</label>
+        <input type="text" name="username" class="form-control" required id="username">
+    </div>
+    <div class="mb-3">
+        <label for="password">Пароль</label>
+        <input type="password" name="password" class="form-control" required id="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+{% endblock %}

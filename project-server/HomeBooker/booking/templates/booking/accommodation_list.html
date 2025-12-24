@@ -1,0 +1,34 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Available Accommodations</h2>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% for accommodation in accommodations %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+
+        {% if accommodation.image %}
+          <img src="{{ accommodation.image.url }}" class="card-img-top" alt="{{ accommodation.name }}" style="height: 200px; object-fit: cover;">
+        {% endif %}
+
+        <div class="card-body">
+          <h5 class="card-title">{{ accommodation.name }}</h5>
+          <p class="card-text text-muted">{{ accommodation.description|truncatechars:100 }}</p>
+          <p><strong>Location:</strong> {{ accommodation.location }}</p>
+          <p><strong>Price per night:</strong> {{ accommodation.price }} CZK</p>
+          <a href="{% url 'accommodation_detail' accommodation.id %}" class="btn btn-outline-primary me-2">View details</a>
+
+          {% if accommodation.owner == user %}
+            <a href="{% url 'edit_accommodation' accommodation.pk %}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{% url 'delete_accommodation' accommodation.pk %}" class="btn btn-danger btn-sm">Delete</a>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  {% empty %}
+    <p>No accommodations found.</p>
+  {% endfor %}
+</div>
+{% endblock %}
