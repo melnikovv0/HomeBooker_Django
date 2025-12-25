@@ -12,3 +12,6 @@
 * **Backend:** Django (Python)
 * **Database:** SQLite (Development)
 * **Images:** Processed with Pillow
+
+* ### 👨‍💻 Author
+**Evgenii Melnikov** *VŠB-TUO, FEI*
