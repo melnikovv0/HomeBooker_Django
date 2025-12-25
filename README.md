@@ -19,5 +19,5 @@
 
 ---
 
-* ### 👨‍💻 Author
+ ### 👨‍💻 Author
 **Evgenii Melnikov** *VŠB-TUO, FEI*
